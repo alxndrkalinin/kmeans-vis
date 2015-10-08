@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>K-means clustering</title>
+
+    <!-- Bootstrap -->
+    <link href="libs/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class=".container-fluid">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <h1 class="title">K-means clustering</h1>
+        </div>
+    </div>
+    <div class=".container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <div class="input-group dataInput">
+                    <label>Dataset:</label>
+                    <div class="radio">
+                        <label><input type="radio" name="radioData" value="easy" checked="">Easy</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" value="not-easy" name="radioData">Not so easy</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="input-group distInput">
+                    <label>Distance:</label>
+                    <div class="radio">
+                        <label><input type="radio" name="radioDist" value="euclidean" checked="">Euclidean</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" value="mahalanobis" name="radioDist">Mahalanobis</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" value="manhattan" name="radioDist">Manhattan</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" value="maximum" name="radioDist">Maximum</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="input-group initInput">
+                    <label>Initialization method:</label>
+                    <div class="radio">
+                        <label><input type="radio" name="radioInit" value="forgy" checked="">Forgy</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="radioInit" value="random">Random Partition</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <form class="form-inline">
+                    <div class="form-group kInput">
+                        <label>K:</label>
+                        <select class="form-control">
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary form-control runKMeans" type="submit">Run</button>
+                    <!--<button class="btn btn-info form-control stepKMeans" type="submit">Step</button>-->
+                    <p></p>
+                    <div>
+                        <p>Accuracy:</p>
+                        <p class="kMeansAcc"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row chart-container">
+            <div id="chart"></div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="libs/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="libs/d3.min.js"></script>
+    <script src="libs/papaparse.min.js"></script>
+    <script src="libs/jsfeat-min.js"></script>
+    <script src="script/kmeans.js"></script>
+  </body>
+</html>
